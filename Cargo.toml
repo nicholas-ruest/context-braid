@@ -1,0 +1,28 @@
+[package]
+name = "context-braid"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Conflict-preserving append-only context ledgers for multi-agent teams"
+license = "MIT"
+repository = "https://github.com/nicholas-ruest/context-braid"
+readme = "README.md"
+keywords = ["agents", "context", "provenance", "audit", "cli"]
+categories = ["command-line-utilities", "data-structures"]
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+fs2 = "0.4"
+hex = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+thiserror = "2.0"
+
+[dev-dependencies]
+tempfile = "3.20"
+
+[profile.release]
+lto = "thin"
+strip = true
+
